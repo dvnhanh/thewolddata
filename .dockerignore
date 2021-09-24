@@ -1,0 +1,6 @@
+.git
+.gitignore
+commit.sh
+Dockerfile
+**/*.pem
+**/*.pb.go

@@ -1,0 +1,10 @@
+[mysql]
+ADDRESS = "127.0.0.1:49154"
+USERNAME = "root"
+PASSWORD = "root"
+DATABASE = "theworlddata-svc"
+NUMBER_IDLE_CONNS = 2
+NUMBER_MAX_CONNS = 100
+
+[http]
+ADDRESS = "localhost:8888"
