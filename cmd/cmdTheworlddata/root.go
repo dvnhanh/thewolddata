@@ -1,7 +1,7 @@
 package cmdTheworlddata
 
 import (
-	"github.com/dvnhanh/thewolddata/internal/core/ports"
+	"github.com/dvnhanh/thewolddata/internal/core/port"
 	"github.com/dvnhanh/thewolddata/internal/core/services"
 	"github.com/dvnhanh/thewolddata/internal/handler"
 	"github.com/dvnhanh/thewolddata/internal/repos/mysqlRepo"
@@ -71,7 +71,7 @@ func buildContainer() *dig.Container {
 	})
 
 	// Setup Repository
-	container.Provide(func(cfg config.Config) ports.ThewolddataMysqlRepoS {
+	container.Provide(func(cfg config.Config) port.TheworlddataMysqlRepoS {
 		db := database.NewDatabase(database.NewMysqlConnector())
 		err := db.Connect(cfg.GetDBConfig())
 		if err != nil {
@@ -82,12 +82,12 @@ func buildContainer() *dig.Container {
 	})
 
 	// Setup Service
-	container.Provide(func(repo ports.ThewolddataMysqlRepoS) ports.ThewolddataService {
+	container.Provide(func(repo port.TheworlddataMysqlRepoS) port.TheworlddataService {
 		return services.NewTheWorldDataService(repo)
 	})
 
 	// Setup Handler
-	container.Provide(func(svc ports.ThewolddataService) handler.HTTPServer {
+	container.Provide(func(svc port.TheworlddataService) handler.HTTPServer {
 		return handler.NewHTTPServer(svc)
 	})
 

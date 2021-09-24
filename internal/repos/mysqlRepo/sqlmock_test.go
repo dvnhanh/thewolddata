@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/dvnhanh/thewolddata/internal/core/ports"
+	"github.com/dvnhanh/thewolddata/internal/core/port"
 	"github.com/dvnhanh/thewolddata/pkg/database"
 	"github.com/stretchr/testify/assert"
 )
@@ -32,10 +32,10 @@ func TestMysqlMock(t *testing.T) {
 	assert.NoError(t, err)
 }
 
-func testRegisterSuccessMock(t *testing.T, mock sqlmock.Sqlmock, repo ports.ThewolddataMysqlRepoS) {
+func testRegisterSuccessMock(t *testing.T, mock sqlmock.Sqlmock, repo port.TheworlddataMysqlRepoS) {
 
 }
 
-func testRegisterFailedMock(t *testing.T, mock sqlmock.Sqlmock, repo ports.ThewolddataMysqlRepoS) {
+func testRegisterFailedMock(t *testing.T, mock sqlmock.Sqlmock, repo port.TheworlddataMysqlRepoS) {
 
 }

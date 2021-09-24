@@ -3,11 +3,11 @@ package mysqlRepo
 import (
 	"context"
 
-	"github.com/dvnhanh/thewolddata/internal/core/ports"
+	"github.com/dvnhanh/thewolddata/internal/core/port"
 	"github.com/dvnhanh/thewolddata/pkg/database"
 )
 
-func NewMysqlRepo(db database.Database) ports.ThewolddataMysqlRepoS {
+func NewMysqlRepo(db database.Database) port.TheworlddataMysqlRepoS {
 	return &mysqlRepo{
 		db: db,
 	}
@@ -21,7 +21,7 @@ func (repo *mysqlRepo) Register(email, password string) error {
 	return repo.db.Transaction(context.Background(), func(ctx context.Context, conn database.Connection) error {
 		_, err := conn.ExecContext(
 			ctx,
-			"CALL `theworlddata-svc`.resigter_account(?, ?)",
+			"CALL `theworlddata`.resigter_account(?, ?)",
 			email,
 			password,
 		)

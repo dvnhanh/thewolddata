@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/dvnhanh/thewolddata/internal/core/ports"
+	"github.com/dvnhanh/thewolddata/internal/core/port"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
@@ -10,14 +10,14 @@ type HTTPServer interface {
 	Begin(address string) error
 }
 
-func NewHTTPServer(svc ports.ThewolddataService) HTTPServer {
+func NewHTTPServer(svc port.TheworlddataService) HTTPServer {
 	return &httpServer{
 		svc: svc,
 	}
 }
 
 type httpServer struct {
-	svc ports.ThewolddataService
+	svc port.TheworlddataService
 }
 
 // middleware
