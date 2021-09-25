@@ -14,8 +14,8 @@ func TestMysqlIntegration(t *testing.T) {
 
 	db := database.NewDatabase(
 		database.NewDockerConnector([]string{
-			"D:/pro-wct/my-app/theworlddata/api/sql/tables.sql",
-			"D:/pro-wct/my-app/theworlddata/api/sql/procedures.sql",
+			"../../../sql/tables.sql",
+			"../../../sql/procedures.sql",
 		}))
 	err = db.Connect(cfg.GetDBConfig())
 	assert.NoError(t, err)
